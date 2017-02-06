@@ -1,0 +1,17 @@
+{
+  "name": "nouvelles-trajectoires",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Evolt"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alineEvolt/nouvelles-trajectoires",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
