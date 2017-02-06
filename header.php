@@ -20,3 +20,14 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<div id="page">
+	<header id="masthead">
+		<h1 class="logo">
+		<img src="" alt="" />
+		</h1>
+	</header>
+
+
+
+</div><!-- END PAGE -->
