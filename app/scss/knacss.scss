@@ -56,6 +56,13 @@
 // Grids
 @import "grids/_grillade.scss"; // grids
 
+@import "common/structure"; //structure du theme
+@import "common/header"; //Header
+@import "common/footer"; //Footer
+
+
+@import "library/home"; //Footer
+
 
 /* ----------------------------- */
 /* ==Own stylesheet              */

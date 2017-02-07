@@ -1799,6 +1799,69 @@ ul.unstyled {
     width: calc(100% / 4 - 4rem - 0.01px); } }
 
 /* ----------------------------- */
+/* ==STRUCTURE                  */
+/* ----------------------------- */
+.wrapper {
+  max-width: 1355px;
+  margin: 0 auto;
+  width: 100%; }
+
+/* ----------------------------- */
+/* ==HEADER                  */
+/* ----------------------------- */
+#masthead {
+  height: 80px;
+  line-height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
+#mainnav {
+  padding-left: 10%; }
+  #mainnav ul {
+    list-style-type: none;
+    list-style-position: outside;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: horizontal;
+    text-align: center; }
+    #mainnav ul li {
+      /*display: inline-block;
+			vertical-align: middle;*/
+      text-transform: uppercase;
+      line-height: 80px;
+      margin: auto; }
+      #mainnav ul li a {
+        text-decoration: none;
+        font-weight: 300;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
+        #mainnav ul li a:hover, #mainnav ul li a:focus {
+          font-weight: 700; }
+
+/* ----------------------------- */
+/* ==FOOTER                  */
+/* ----------------------------- */
+/* ----------------------------- */
+/* ==Content home                */
+/* ----------------------------- */
+#home {
+  background: #103270;
+  background: -webkit-linear-gradient(legacy-direction(90deg), #103270, #035BF0);
+  background: -webkit-linear-gradient(left, #103270, #035BF0);
+  background: linear-gradient(90deg, #103270, #035BF0);
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  width: 100vw; }
+
+/* ----------------------------- */
 /* ==Own stylesheet              */
 /* ----------------------------- */
 /* Here should go your own CSS styles */

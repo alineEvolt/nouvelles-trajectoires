@@ -1,0 +1,44 @@
+/* ----------------------------- */
+/* ==HEADER                  */
+/* ----------------------------- */
+
+#masthead {
+	height: 80px;
+	line-height: 80px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+}
+
+#mainnav {
+	padding-left: 10%;
+	ul {
+		list-style-type: none;
+		list-style-position: outside;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: horizontal;
+		text-align: center;
+		li {
+			/*display: inline-block;
+			vertical-align: middle;*/
+			text-transform: uppercase;
+			line-height: 80px;
+			margin: auto;
+			a {
+				text-decoration: none;				
+				font-weight: 300;
+				transition: all 0.3s ease;
+
+				&:hover, &:focus {
+					font-weight: 700;
+				}
+
+			}
+		}
+	}
+}

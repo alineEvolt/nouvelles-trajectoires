@@ -21,13 +21,23 @@
 
 <body <?php body_class(); ?>>
 
-<div id="page">
-	<header id="masthead">
-		<h1 class="logo">
-		<img src="" alt="" />
-		</h1>
-	</header>
+	<div id="page">
+		<header id="masthead">
+			<div class="wrapper">
+				<div class="grid">
+					<h1 class="logo one-third">
+						<a href="#page">
+							<img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo-big.svg" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" />
+						</a>
+					</h1>
+					<div id="mainnav" class="two-third">
+						<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main id="main">
 
 
 
-</div><!-- END PAGE -->
+
