@@ -2,8 +2,20 @@
 /* ==STRUCTURE                  */
 /* ----------------------------- */
 
-.wrapper {
-  max-width: 1355px;
+.wrapper {  
   margin: 0 auto;
+  padding: 0 12px;
   width: 100%;
+}
+
+#masthead {
+	.wrapper {
+		max-width: 1379px;
+	}
+}
+
+#main, #footer {
+	.wrapper {
+		max-width: 1150px;
+	}
 }

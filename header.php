@@ -16,6 +16,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
+
+
 <?php wp_head(); ?>
 </head>
 
@@ -24,13 +26,13 @@
 	<div id="page">
 		<header id="masthead">
 			<div class="wrapper">
-				<div class="grid">
+				<div class="grid-3 has-gutter-xl">
 					<h1 class="logo one-third">
-						<a href="#page">
-							<img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo-big.svg" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" />
+						<a href="#page" data-logo-1="<?php the_field('logo_1', 'option'); ?>" data-logo-2="<?php the_field('logo_2', 'option'); ?>">
+							<img src="<?php the_field('logo_1', 'option'); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" />
 						</a>
 					</h1>
-					<div id="mainnav" class="two-third">
+					<div id="mainnav" class="two-thirds">
 						<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
 					</div>
 				</div>

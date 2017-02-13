@@ -3,41 +3,121 @@
 /* ----------------------------- */
 
 #masthead {
+	border-bottom: solid 1px rgba(255,255,255,0.12);
 	height: 80px;
 	line-height: 80px;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
+	transition: all 0.5s ease;
+	z-index: 100;
 
-}
+	&.hideNav {
+		top: -80px;
+	}
 
-#mainnav {
-	padding-left: 10%;
-	ul {
-		list-style-type: none;
-		list-style-position: outside;
-		padding: 0;
-		margin: 0;
-		width: 100%;
-		display: flex;
-		flex-direction: horizontal;
-		text-align: center;
-		li {
-			/*display: inline-block;
-			vertical-align: middle;*/
-			text-transform: uppercase;
-			line-height: 80px;
-			margin: auto;
-			a {
-				text-decoration: none;				
-				font-weight: 300;
-				transition: all 0.3s ease;
-
-				&:hover, &:focus {
-					font-weight: 700;
+	&.hasScrolled {
+		position: fixed;
+		background: $alpha-color;
+		box-shadow: 0 3px 6px rgba(113,132,166,0.1);
+		#mainnav {
+			ul {
+				li {
+					a {
+						color: rgba(16,99,255,0.6);
+						&:after {
+							background: $delta-color;
+						}
+						&:hover, &:focus {
+							color: $delta-color;
+						}
+					}
+					&.contact-btn {
+						a {
+							color: $delta-color;
+							border: 1px solid $delta-color;
+							&:hover, &:focus {
+								background: $delta-color;
+								color: $alpha-color;
+							}
+						}
+					}
 				}
+			}
+		}
+		&.goDown {
+			top: 0;
+		}
+	}
 
+	#mainnav {
+		padding-top: 23px;
+		ul {
+			list-style-type: none;
+			list-style-position: outside;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			display: flex;
+			flex-direction: horizontal;
+			text-align: center;
+			li {
+				text-transform: uppercase;
+				line-height: 33px;
+				margin: auto;
+				a {
+					color: rgba(255,255,255,0.6);
+					text-decoration: none;				
+					font-weight: 100;
+					position: relative;
+					padding-bottom: 15px;
+					transition: all 0.3s ease;
+
+					&:after {
+						background: $alpha-color;
+						display: block;
+						content: '';
+						overflow: hidden;
+						height: 2px;
+						width: 0;
+						transition: width 0.3s ease;
+
+						&:hover, &:focus {
+							width: 100%;
+						}
+					}
+
+					&:hover, &:focus {
+						color: $alpha-color;
+						font-weight: 500;
+
+						&:after {
+							width: 100%;
+						}
+					}
+				}
+				&.contact-btn {
+					a {
+						color: $alpha-color;
+						display: block;
+						line-height: 30px;
+						text-align: center;
+						padding: 0 15px;
+						border: 1px solid $alpha-color;
+						border-radius: 100px;
+						margin-top: -3px;
+
+						&:after {
+							display: none;
+						}
+						&:hover, &:focus {
+							background: $alpha-color;
+							color: $delta-color;
+							font-weight: 500;
+						}
+					}
+				}
 			}
 		}
 	}

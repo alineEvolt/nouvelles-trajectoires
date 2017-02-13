@@ -26,6 +26,7 @@ body {
   font-family: $font-stack-common;
   font-weight: 300;
   line-height: $line-height;
+  font-style: normal;
 }
 
 a {
@@ -82,18 +83,22 @@ h2, .#{$kna-namespace}h2-like {
 
 h3, .#{$kna-namespace}h3-like {
   font-size: $h3-size;
+  font-family: $font-stack-headings;
 }
 
 h4, .#{$kna-namespace}h4-like {
   font-size: $h4-size;
+  font-family: $font-stack-headings;
 }
 
 h5, .#{$kna-namespace}h5-like {
   font-size: $h5-size;
+  font-family: $font-stack-headings;
 }
 
 h6, .#{$kna-namespace}h6-like {
   font-size: $h6-size;
+  font-family: $font-stack-headings;
 }
 
 /* alternate font-sizing */

@@ -4,9 +4,32 @@
 
 
 #home {
-  @include linear-gradient(90deg, #103270, #035BF0);
-  height: 100%;
-  height: 100vh;
-  width: 100%;
-  width: 100vw;
+
+  .intro_home {
+    display: block;
+  	padding-top: 80px;
+    @include linear-gradient(90deg, #103270, #035BF0);
+    height: 100%;
+    height: 100vh;
+    width: 100%;
+
+    .wrapper {
+      height: 100%;
+      width: 100%;
+    } 
+
+	  .grid {
+	  	height: 35%;
+	  	div {
+	  		margin: auto;
+	  	}
+	  }
+  }
+
+  .text-intro {
+  	color: $alpha-color;
+  }
+  .content_row {
+    padding: $extra-large-value 0;    
+  }
 }

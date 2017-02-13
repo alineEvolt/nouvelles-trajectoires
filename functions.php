@@ -42,6 +42,11 @@ function nouvelles_trajectoires_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	//Ajout des tailles d'image
+	add_image_size('picto_big', 138, 138, false);
+	add_image_size('picto_small', 75, 75, false);
+
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'nouvelles-trajectoires' ),
@@ -83,11 +88,20 @@ function nouvelles_trajectoires_widgets_init() {
 }
 add_action( 'widgets_init', 'nouvelles_trajectoires_widgets_init' );
 
+
+//Add google web font
+function wpb_add_google_fonts() {
+
+wp_enqueue_style( 'nt-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900', false ); 
+}
+
+add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+
 /**
  * Enqueue scripts and styles.
  */
 function nouvelles_trajectoires_scripts() {
-	wp_enqueue_style( 'nouvelles-trajectoires-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'nt-style', get_stylesheet_uri() );
 
 	/* à remettre pour le build (prod)*/
 	//wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/dist/css/styles.min.css' );
@@ -95,9 +109,9 @@ function nouvelles_trajectoires_scripts() {
     //A virer pour le build
     wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/app/css/knacss.css' );
 
-    wp_enqueue_script( 'nt-modernirz', get_template_directory_uri() . '/dist/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array("jquery"), '20170602', false );
+    wp_enqueue_script( 'nt-modernirz', get_template_directory_uri() . '/dist/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array("jquery"), '20170207', false );
 
-	wp_register_script( 'formchat-functions', get_template_directory_uri() . '/dist/js/main.min.js', array("jquery"), '20170602', true );
+		wp_enqueue_script( 'nt-functions', get_template_directory_uri() . '/dist/js/main.min.js', array("jquery"), '20170207', true );
 
 
 }
