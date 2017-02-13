@@ -7,7 +7,6 @@
  * @package nouvelles-trajectoires
  */
 
-
 	$secBkg = get_field('bkg_sec');
 	$imgBkgQ = get_field('img_bkg_sec');
 	$imgBkqR = get_field('img_bkg_sec_upload');
@@ -28,18 +27,14 @@
 	elseif( $imgPos === 'bottom_center' ) { $posBkg = '50% 100%'; }
 	elseif( $imgPos === 'bottom_right' ) { $posBkg = '100% 100%'; }
 	echo '<section class="section bkg-' . $background . '">';
-	if( $imgBkgQ ) {
-		//echo '<section class="section" style="background: ' . $colorBkg . ' url(' . $imgBkqR['url'] . ') no-repeat ' . $posBkg . ' / 100% auto; padding-bottom: 500px;">'; ?>
+
+	if( $imgBkgQ ) { ?>
 		<div class="imgSection <?php echo $imgPos; ?>">
 			<div class="wrapper">
 				<img src="<?php echo $urlImgBkg; ?>" alt="" />
 			</div>
 		</div>
-
 <?php	} 
-//else {
-		//echo '<section class="section bkg-' . $background . '">';
-	//}		
 
 	if( have_rows('section_row') ):
 		while ( have_rows('section_row') ) : the_row();	
@@ -69,7 +64,8 @@
 									
 					$rows = get_sub_field('add_column');
 					$count_rows = count($rows);
-					
+					$j = 0;
+					$k = 0;
 				if( have_rows('add_column') ):					
 				  while ( have_rows('add_column') ) : the_row();					
 					$title = get_sub_field('title_contenu');
@@ -79,7 +75,6 @@
 					$url_image = $image['url'];
 
 					echo (++$j % 2 == 1) ? '<div class="flex-container">' : '';
-					
 				?>
 					<div class="flex-item-center column">
 
@@ -98,6 +93,7 @@
 							</div>
 					</div>
 			<?php
+
 				echo (++$k % 2 == 0) ? '</div>' : '';
 					endwhile;
 				endif;
