@@ -9,7 +9,7 @@ if ( have_posts() ) :
 			$visuel_home = '';
 		}
 ?>
-		<section id="home">
+		<section id="accueil">
 			<div class="intro_home">
 				<div class="wrapper" style="<?php echo $visuel_home; ?>">
 					<div class="grid">

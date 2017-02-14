@@ -1849,7 +1849,7 @@ ul.unstyled {
       color: rgba(16, 99, 255, 0.6); }
       #masthead.hasScrolled #mainnav ul li a:after {
         background: #1063FF; }
-      #masthead.hasScrolled #mainnav ul li a:hover, #masthead.hasScrolled #mainnav ul li a:focus {
+      #masthead.hasScrolled #mainnav ul li a:hover, #masthead.hasScrolled #mainnav ul li a:focus, #masthead.hasScrolled #mainnav ul li a.current {
         color: #1063FF; }
     #masthead.hasScrolled #mainnav ul li.contact-btn a {
       color: #1063FF;
@@ -1896,10 +1896,10 @@ ul.unstyled {
             transition: width 0.3s ease; }
             #masthead #mainnav ul li a:after:hover, #masthead #mainnav ul li a:after:focus {
               width: 100%; }
-          #masthead #mainnav ul li a:hover, #masthead #mainnav ul li a:focus {
+          #masthead #mainnav ul li a:hover, #masthead #mainnav ul li a:focus, #masthead #mainnav ul li a.current {
             color: #fff;
             font-weight: 500; }
-            #masthead #mainnav ul li a:hover:after, #masthead #mainnav ul li a:focus:after {
+            #masthead #mainnav ul li a:hover:after, #masthead #mainnav ul li a:focus:after, #masthead #mainnav ul li a.current:after {
               width: 100%; }
         #masthead #mainnav ul li.contact-btn a {
           color: #fff;
@@ -1969,7 +1969,7 @@ ul.unstyled {
 /* ----------------------------- */
 /* ==Content home                */
 /* ----------------------------- */
-#home .intro_home {
+#accueil .intro_home {
   display: block;
   padding-top: 80px;
   background: #103270;
@@ -1979,18 +1979,18 @@ ul.unstyled {
   height: 100%;
   height: 100vh;
   width: 100%; }
-  #home .intro_home .wrapper {
+  #accueil .intro_home .wrapper {
     height: 100%;
     width: 100%; }
-  #home .intro_home .grid {
+  #accueil .intro_home .grid {
     height: 35%; }
-    #home .intro_home .grid div {
+    #accueil .intro_home .grid div {
       margin: auto; }
 
-#home .text-intro {
+#accueil .text-intro {
   color: #fff; }
 
-#home .content_row {
+#accueil .content_row {
   padding: 8rem 0; }
 
 /* ----------------------------- */
@@ -2033,7 +2033,7 @@ ul.unstyled {
       margin-top: 0; }
 
 .content_row {
-  padding: 8rem 0 12rem;
+  padding: 8rem 0 8rem;
   background: #fff; }
   .content_row .flex-container {
     padding-bottom: 6rem; }

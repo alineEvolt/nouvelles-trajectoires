@@ -28,7 +28,14 @@
 			<div class="wrapper">
 				<div class="grid-3 has-gutter-xl">
 					<h1 class="logo one-third">
-						<a href="#page" data-logo-1="<?php the_field('logo_1', 'option'); ?>" data-logo-2="<?php the_field('logo_2', 'option'); ?>">
+						<?php
+							if( is_front_page() ) {
+								$homeLink = '#accueil';
+							} else {
+								$homeLink = '/#accueil';
+							}
+						?>
+						<a href="<?php echo $homeLink; ?>" data-logo-1="<?php the_field('logo_1', 'option'); ?>" data-logo-2="<?php the_field('logo_2', 'option'); ?>" data-title="accueil">
 							<img src="<?php the_field('logo_1', 'option'); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" />
 						</a>
 					</h1>

@@ -64,7 +64,8 @@ class mono_walker extends Walker_Nav_Menu{
   $path = implode('/',$pathTab );
   
   $attributes .= ! empty( $item->url )        ? ' href="'   . $path .'"' : '';
-  $attributes .= ! empty( $item->url )        ? ' data-title="'   .   sanitize_title($item->title) .'"' : '';
+  $attributes .= ! empty( $item->url )        ? ' data-title="'   .   apply_filters( 'the_title', $item->title, $item->ID ) .'"' : '';
+  $attributes .= ! empty( $item->url )        ? ' id="item-'  .   sanitize_title($item->title) .'"' : '';
   $description  = ! empty( $item->description ) ? '<span>'.esc_attr( $item->description ).'</span>' : '';
   
   if($depth != 0) $description = "";
