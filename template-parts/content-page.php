@@ -13,6 +13,7 @@
 	$urlImgBkg = $imgBkqR['url'];
 	$imgPos = get_field('pos_img_bkg_sec');
 	$posBkg = '0 0';
+	$slug = basename(get_permalink());
 
 	if( $secBkg ) { $background = $secBkg; } 
 	else { $background = 'white'; }	
@@ -26,7 +27,7 @@
 	elseif( $imgPos === 'bottom_left' ) { $posBkg = '0 100%'; }
 	elseif( $imgPos === 'bottom_center' ) { $posBkg = '50% 100%'; }
 	elseif( $imgPos === 'bottom_right' ) { $posBkg = '100% 100%'; }
-	echo '<section class="section bkg-' . $background . '">';
+	echo '<section class="section bkg-' . $background . '" id="' . $slug . '">';
 
 	if( $imgBkgQ ) { ?>
 		<div class="imgSection <?php echo $imgPos; ?>">

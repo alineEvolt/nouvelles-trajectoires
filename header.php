@@ -33,7 +33,7 @@
 						</a>
 					</h1>
 					<div id="mainnav" class="two-thirds">
-						<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
+						<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu','walker' => new mono_walker() ) ); ?>
 					</div>
 				</div>
 			</div>
