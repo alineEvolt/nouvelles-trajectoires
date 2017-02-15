@@ -29,7 +29,7 @@ get_header();
 
 			if ( $each_section->have_posts() ) :
 				while ( $each_section->have_posts() ) : $each_section->the_post();
-//echo 'section id : ' . $section_id;
+			
 					echo get_template_part('/template-parts/content', 'page');
 
 				endwhile;

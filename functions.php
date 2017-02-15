@@ -45,6 +45,8 @@ function nouvelles_trajectoires_setup() {
 	//Ajout des tailles d'image
 	add_image_size('picto_big', 138, 138, false);
 	add_image_size('picto_small', 75, 75, false);
+	add_image_size('avatar', 70, 70);
+	add_image_size('avatar_big', 170, 183);
 
 
 	// This theme uses wp_nav_menu() in one location.
@@ -109,14 +111,31 @@ function nouvelles_trajectoires_scripts() {
     //A virer pour le build
     wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/app/css/knacss.css' );
 
-    wp_enqueue_script( 'nt-modernirz', get_template_directory_uri() . '/dist/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array("jquery"), '20170207', false );
+    wp_enqueue_script( 'nt-modernirz', get_template_directory_uri() . '/dist/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array("jquery"), '20170214', false );
 
-		wp_enqueue_script( 'nt-functions', get_template_directory_uri() . '/dist/js/main.min.js', array("jquery"), '20170207', true );
+		wp_register_script( 'nt-functions', get_template_directory_uri() . '/dist/js/main.min.js', array("jquery"), '20170214', true );
+
+		wp_register_script( 'nt-chatjs', get_template_directory_uri() . '/dist/chat/chat.min.js', array("jquery"), '20170214', true );
+		wp_localize_script( 'nt-chatjs', 'chatux_params', array( 'chat_ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+
+		if( is_front_page() ){
+	    wp_enqueue_script( 'nt-functions' );
+	  }
+
+	  if( is_single() && get_post_type() == 'chat' ){
+	    //wp_enqueue_style( 'nt-chatcss' );
+	    wp_enqueue_script( 'nt-chatjs' );
+	  }
 
 
 }
 add_action( 'wp_enqueue_scripts', 'nouvelles_trajectoires_scripts' );
 
+/**
+ * add custom posts type
+ */
+
+require get_template_directory() . '/inc/types.php';
 
 /**
  * Custom functions that act independently of the theme templates.

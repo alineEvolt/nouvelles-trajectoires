@@ -31,12 +31,14 @@
 						<?php
 							if( is_front_page() ) {
 								$homeLink = '#accueil';
+								$imgLogo = get_field('logo_1', 'option');
 							} else {
 								$homeLink = '/#accueil';
+								$imgLogo = get_field('logo_2', 'option');
 							}
 						?>
 						<a href="<?php echo $homeLink; ?>" data-logo-1="<?php the_field('logo_1', 'option'); ?>" data-logo-2="<?php the_field('logo_2', 'option'); ?>" data-title="accueil">
-							<img src="<?php the_field('logo_1', 'option'); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" />
+							<img src="<?php echo $imgLogo; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" />
 						</a>
 					</h1>
 					<div id="mainnav" class="two-thirds">

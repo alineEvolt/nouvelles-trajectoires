@@ -53,6 +53,13 @@ return gulp.src('app/js/vendor/*.js')
 
 });
 
+gulp.task('chatjs', function() {
+return gulp.src('app/chat/chat.js')
+    .pipe(gulpIf('*.js', uglify()))
+    .pipe(rename('chat.min.js'))
+    .pipe(gulp.dest('dist/chat'));
+});
+
 // Watchers
 gulp.task('watch', function() {
   gulp.watch('app/scss/**/*.scss', ['sass']);
@@ -110,7 +117,7 @@ gulp.task('clean:dist', function() {
 // ---------------
 
 gulp.task('default', function(callback) {
-  runSequence(['sass', 'vendorjs', 'jsuse', 'browserSync', 'watch'],
+  runSequence(['sass', 'vendorjs', 'jsuse', 'chatjs', 'browserSync', 'watch'],
     callback
   )
 })
@@ -119,7 +126,7 @@ gulp.task('build', function(callback) {
   runSequence(
     'clean:dist',
     'sass',
-    ['vendorjs', 'useref', 'images', 'imagesUI'],
+    ['vendorjs', 'useref', 'chatjs', 'images', 'imagesUI'],
     callback
   )
 })

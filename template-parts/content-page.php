@@ -162,7 +162,7 @@
 				?>
 					<div class="wrapper">
 						<div class="flex-container">
-							<div class="flex-item-item right">
+							<div class="flex-item-center">
 								<div class="contact-bloc">
 									<a href="<?php echo $linkBot; ?>">
 										<span class="bulle">

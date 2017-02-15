@@ -1,0 +1,56 @@
+/* ----------------------------- */
+/* ==Synthese                    */
+/* ----------------------------- */
+
+.single-synthese {
+  background: $zeta-color;
+  #main {
+    padding-top: 100px;
+
+    .wrapper {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      color: $epsilon-color;
+      font-size: $h1-size;
+      text-align: center;
+      margin: $medium-value 0 $medium-plus-value;
+      span {
+        display: block;
+        font-size: $h4-size;
+        color: $base-color;
+        font-weight: 100;
+      }
+    }
+
+    .intro {
+      text-align: center;
+      padding-bottom: $medium-plus-value;
+      p {
+        font-size: 2.6rem;
+        font-weight: 300;
+        color: $theta-color;
+        margin-top: 0;
+      }
+    }
+
+    .names {
+      list-style-type: none;
+      list-style-position: outside;
+      margin: 0 0 $medium-plus-value;
+      padding: 0;
+      li {
+        font-size: $h4-size;
+        display: block;
+        margin-bottom: $tiny-plus-value;
+        strong {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+

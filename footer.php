@@ -11,12 +11,13 @@
 
 ?>	
 		</main><!-- END MAIN -->
-		<footer id="footer">
+		<footer id="footer">		
 			<div class="grid contentinfo">
 				<div class="full txtcenter">
 					<img src="<?php the_field('logo_1', 'option'); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="367" height="44" />
 				</div>
 			</div>
+			<?php if( is_front_page() ) { ?>
 			<div class="flex-container wrapper">
 				<div class="flex-item-fluid">
 					<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'footer-menu' ) ); ?>
@@ -29,6 +30,7 @@
 					<p>Suivez-nous sur <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/picto-linkedin.svg" alt="Linkedin" /></a></p>
 				</div>
 			</div>
+		
 			<div class="copyright">
 				<div class="grid wrapper">
 					<div class="copy two-thirds">
@@ -39,9 +41,10 @@
 					</div>
 				</div>
 			</div>
+			<?php } ?>
 		</footer>
 	</div><!-- END PAGE -->
-
+<div id="overlay"></div>
 <?php wp_footer(); ?>
 
 </body>

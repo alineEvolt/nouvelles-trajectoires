@@ -80,3 +80,74 @@ class mono_walker extends Walker_Nav_Menu{
   $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
  }
 }
+
+
+// Ajout des notifications sur les synthèses en attente 
+add_action( 'admin_menu', 'pending_posts_bubble_notif', 999 );
+function pending_posts_bubble_notif() {
+
+    global $menu;
+    $args = array( 'public' => true ); 
+    $post_types = get_post_types( $args );
+    unset( $post_types['attachment'] );
+
+    foreach( $post_types as $pt ) {
+
+        $cpt_count = wp_count_posts( $pt );
+
+        if ( $cpt_count->pending ) {
+            $suffix = ( 'post' == $pt ) ? '' : "?post_type=$pt";
+
+            $key = recursive_array_search_notif( "edit.php$suffix", $menu );
+
+            if( !$key )
+                return;
+
+            $menu[$key][0] .= sprintf(
+                '<span class="update-plugins count-%1$s" style="background-color:#d54e21;color:white; margin-left: 5px;"><span class="plugin-count">%1$s</span></span>',
+                $cpt_count->pending 
+            );
+        }
+    }
+}
+
+function recursive_array_search_notif( $needle, $haystack ) {
+    foreach( $haystack as $key => $value ) {
+        $current_key = $key;
+        if( 
+            $needle === $value 
+            OR ( 
+                is_array( $value )
+                && recursive_array_search_notif( $needle, $value ) !== false 
+            )
+        ) 
+        {
+            return $current_key;
+        }
+    }
+    return false;
+}
+
+
+add_action( 'transition_post_status', 'send_mails_on_publish', 10, 3 );
+
+function send_mails_on_publish( $new_status, $old_status, $post )
+{
+  if ( 'pending' !== $new_status or 'pending' === $old_status
+        or 'synthese' !== get_post_type( $post ) )
+        return;
+
+    $subscribers = get_users( array ( 'role' => 'administrator' ) );
+    $emails      = array ();
+
+    foreach ( $subscribers as $subscriber )
+        $emails[] = $subscriber->user_email;
+
+    $body = sprintf( 'Hey there is a new entry!
+        See <%s>',
+        get_permalink( $post )
+    );
+
+
+    wp_mail( $emails, 'New entry!', $body );
+}

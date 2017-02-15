@@ -47,7 +47,7 @@ jQuery(function($) {
             scrollTop: offsetSection
           }, 1000, function() {
             window.location.hash = hashSection;
-            $('title').text(title + ' | ' + dataTitle);
+            $('title').text(dataTitle + ' | ' + title);
           });
 
       e.preventDefault();
