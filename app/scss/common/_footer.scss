@@ -8,6 +8,11 @@
 	a {
 		color: $base-color;
 	}
+	@media (max-width: ($small - 1)) {
+		p, li {
+			font-size: 1.4rem;
+		}
+	}
 
 	.contentinfo {
 		border-bottom: solid 1px rgba(255,255,255,0.1);
@@ -44,12 +49,34 @@
 					}
 				}
 			}
+			@media (max-width: ($small - 1)) {
+				position: absolute;
+				top: 20px;
+				left: 0;
+				width: 100% !important;
+				text-align: center;
+			}
+		}
+		@media (max-width: ($small - 1)) {
+			display: block;
+			padding: 12rem 12px $large-value;
+			position: relative;
+			.flex-item-fluid {
+				margin: 0;
+				padding-left: 0;
+				width: 49%;
+				display: inline-block;
+				vertical-align: top;
+			}
 		}
 	}
 	.copyright {
 		border-top: solid 1px rgba(255,255,255,0.1);
 		.copy, .realisation {			
 			padding-left: $extra-large-value;
+			@media (max-width: ($small - 1)) {
+				padding-left: 12px;
+			}
 		}
 		.realisation {
 			a {
@@ -77,6 +104,9 @@
 	padding: 0;
 	li {
 		font-size: 100%;
+		@media (max-width: ($small - 1)) {
+			font-size: 1.4rem;
+		}
 	}
 }
 

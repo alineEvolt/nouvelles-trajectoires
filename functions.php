@@ -109,7 +109,9 @@ function nouvelles_trajectoires_scripts() {
 	//wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/dist/css/styles.min.css' );
     
     //A virer pour le build
+    wp_enqueue_style( 'ntui-styles', get_template_directory_uri() . '/app/css/jquery-ui.css' );
     wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/app/css/knacss.css' );
+    // end a virer pour le build
 
     wp_enqueue_script( 'nt-modernirz', get_template_directory_uri() . '/dist/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array("jquery"), '20170214', false );
 

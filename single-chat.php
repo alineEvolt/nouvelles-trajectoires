@@ -54,17 +54,6 @@
 			  	} else {
 			  		$countRows = $countRows;
 			  	}
-					
-
-					/*if( $countRows > 2 ) {
-		      	$classSlide = 'swiper-slide';
-		      	$classCont = 'swiper-container';
-		      	$classWrap = 'swiper-wrapper';
-	      	} else {
-	      		$classSlide = '';
-		      	$classCont = 'noslider';
-		      	$classWrap = '';
-	      	}*/
 
 					echo '<div class="chat_responses choicerep swiper-container" id="launch_rep_chat_sequence_' . $a . '_' . $countFlex++ . '">';
 		      	echo '<div class="chat_response swiper-wrapper">';
@@ -367,6 +356,28 @@
 
 									    endif; // end boutons de type input
 
+									    //Boutons de type zone de texte
+									    if( get_row_layout() == 'btn_textarea_next' ):
+
+									    	if(get_sub_field('btn_input_textarea') ) {
+
+							        		echo '<div class="chat_responses seqItem writeZrep" id="launch_rep_chat_sequence_' . $a . '_' . $i . '">';
+												  echo '<div class="chat_response">';
+							        		echo '<div class="input_textarea btn_chat">';
+
+							        		echo '<textarea rows="5" cols="50" class="input_text_textarea" placeholder="Écrivez un message..."></textarea>';
+							        		echo '<a href="#" class="submit_input">Envoyer</a>';
+
+
+							        		echo '</div>';
+													echo '</div>';
+													echo '</div>';
+
+
+									      }
+
+									    endif; // end boutons de type zone de texte
+
 			    					
 				    				endwhile;
 				    						
@@ -530,9 +541,31 @@
 						echo '</div>';
 						echo '</div>';
 
-			    }
+			    }		    
 
-			  endif; // end boutons de type input		
+			  endif; // end boutons de type input
+
+			  //Boutons de type zone de texte
+		    if( get_row_layout() == 'btn_textarea' ):
+
+		    	if(get_sub_field('btn_input_textarea') ) {
+
+        		echo '<div class="chat_responses writeZrep" id="launch_rep_chat_sequence_' . $a . '">';
+					  echo '<div class="chat_response">';
+        		echo '<div class="input_textarea btn_chat">';
+
+        		echo '<textarea rows="5" cols="50" class="input_text_textarea" placeholder="Écrivez un message..."></textarea>';
+        		echo '<a href="#" class="submit_input">Envoyer</a>';
+
+
+        		echo '</div>';
+						echo '</div>';
+						echo '</div>';
+
+
+		      }
+
+		    endif; // end boutons de type zone de texte
 
 			  //Boutons de type embed
 			  if( get_row_layout() == 'bulle_embed' ):

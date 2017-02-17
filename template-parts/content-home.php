@@ -18,12 +18,17 @@ if ( have_posts() ) :
 						</div>
 					</div>
 				</div>
+				<div class="scroll-btn">
+					<a href="#" title="cliquez pour scroller vers le bas">
+						<img src="<?php echo get_template_directory_uri(); ?>/dist/images/arrow-white.svg" alt="" />
+					</a>
+				</div>
 			</div>
 			<?php if( have_rows('bloc_contenu_home') ): ?>
 
-			<div class="wrapper content_row">
+			<div id="slideHome" class="wrapper content_row swiper-container">
 
-				<div class="flex-container">
+				<div class="flex-container swiper-wrapper">
 				
 				<?php while( have_rows('bloc_contenu_home') ): the_row();
 
@@ -34,7 +39,7 @@ if ( have_posts() ) :
 					$posImg = get_sub_field('pos_img_contenu_home');
 
 				?>
-					<div class="flex-item-fluid column">
+					<div class="flex-item-fluid column swiper-slide">
 					<?php
 						if( $image ) { ?>
 							<div class="visu pos-<?php echo $posImg; ?>">

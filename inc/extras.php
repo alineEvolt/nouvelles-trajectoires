@@ -46,7 +46,7 @@ class mono_walker extends Walker_Nav_Menu{
   $class_names = $value = '';
   $classes = empty( $item->classes ) ? array() : (array) $item->classes;
   
-  $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+  $class_names = join( ' ', apply_filters( 'item_ancre', array_filter( $classes ), $item ) );
   $class_names = ' class="'. esc_attr( $class_names ) . '"';
   
   $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
@@ -79,6 +79,14 @@ class mono_walker extends Walker_Nav_Menu{
   
   $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
  }
+}
+
+add_filter( 'wp_nav_menu_items', 'add_contact_btn', 10, 2 );
+
+function add_contact_btn( $items, $args )
+{
+    $items .= '<li class="contact-btn"><a href="' . get_field('lien_contact', 'option') . '">Contact</a></li>';
+    return $items;
 }
 
 

@@ -56,11 +56,17 @@
 			endif;
 
 			if( get_row_layout() == 'bloc_contenu' ):
+				$posImbMob = get_sub_field('pos_img_mobile');
+				if( $posImbMob ) {
+					$posTop = 'img-top';
+				} else {
+					$posTop = '';
+				}
 				echo '<div class="wrapper">';
 				if( $secBkg != 'gray') {
-					echo '<div class="content_row nopad_content">';
+					echo '<div class="content_row nopad_content ' . $posTop . '">';
 				} else {
-					echo '<div class="content_row">';
+					echo '<div class="content_row ' . $posTop . '">';
 				}
 									
 					$rows = get_sub_field('add_column');
@@ -151,14 +157,10 @@
 
 				$contactBloc = get_sub_field('ajout_bloc_contact');
 
-				//$linkBot = '';
-				//if( $contactLink ) { $linkBot = $contactLink; } else { $linkBot = '/' }
-
 				if( $contactBloc ) { 
 					$contactLink = get_field('lien_contact', 'option');
 					$linkBot = '/';
 					if( $contactLink ) { $linkBot = $contactLink; }
-					//echo $linkBot;
 				?>
 					<div class="wrapper">
 						<div class="flex-container">

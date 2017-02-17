@@ -26,19 +26,22 @@
 	<div id="page">
 		<header id="masthead">
 			<div class="wrapper">
-				<div class="grid-3 has-gutter-xl">
+				<div class="grid-3 has-gutter">
 					<h1 class="logo one-third">
 						<?php
 							if( is_front_page() ) {
 								$homeLink = '#accueil';
 								$imgLogo = get_field('logo_1', 'option');
+								$imgLogoSmall = get_field('logo_small', 'option');
 							} else {
 								$homeLink = '/#accueil';
 								$imgLogo = get_field('logo_2', 'option');
+								$imgLogoSmall = get_field('logo_small_2', 'option');
 							}
 						?>
-						<a href="<?php echo $homeLink; ?>" data-logo-1="<?php the_field('logo_1', 'option'); ?>" data-logo-2="<?php the_field('logo_2', 'option'); ?>" data-title="accueil">
-							<img src="<?php echo $imgLogo; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" />
+						<a href="<?php echo $homeLink; ?>" data-logo-1="<?php the_field('logo_1', 'option'); ?>" data-logo-2="<?php the_field('logo_2', 'option'); ?>" data-logo-small="<?php the_field('logo_small', 'option'); ?>" data-logo-small-2="<?php the_field('logo_small_2', 'option'); ?>" data-title="accueil">
+							<img src="<?php echo $imgLogo; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="322" height="40" class="tiny-hidden small-hidden" />
+							<img src="<?php echo $imgLogoSmall; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" width="40" height="40" class="medium-hidden large-hidden" />
 						</a>
 					</h1>
 					<div id="mainnav" class="two-thirds">

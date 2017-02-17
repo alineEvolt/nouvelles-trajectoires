@@ -53,10 +53,22 @@
 
 	h1 {
 		margin-bottom: 0;
+		@media (max-width: ($small - 1)) {
+			display: inline-block;
+			vertical-align: middle;
+		}
 		a {
 			display: block;
 			img {
-				width: 300px;
+				@media (min-width: $small) {
+					width: 300px;					
+				}
+				@media (max-width: ($small - 1)) {
+					width: 40px;
+					position: relative;
+					top: -5px;
+				}
+				
 				height: auto;
 			}
 		}
@@ -64,6 +76,12 @@
 
 	#mainnav {
 		padding-top: 15px;
+		@media (max-width: ( $small - 1 )) {
+			width: 120px;
+			display: inline-block;
+			float: right;
+			line-height:65px;
+		}
 		ul {
 			list-style-type: none;
 			list-style-position: outside;
@@ -127,6 +145,14 @@
 							color: $delta-color;
 							font-weight: 500;
 						}
+					}
+					@media (max-width: ( $small - 1 )) {
+						padding-top: 4px;
+					}
+				}
+				@media (max-width: ( $small - 1 )) {
+					&:not(.contact-btn) {
+						display: none;
 					}
 				}
 			}

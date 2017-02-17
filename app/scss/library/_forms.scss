@@ -365,7 +365,7 @@
 
     }
 
-    &.incrrep, &.writerep, &.selectrep {
+    &.incrrep, &.writerep, &.selectrep, &.writeZrep {
       .chat_response {
         bottom: -20px;
         max-width: 100%;
@@ -434,6 +434,7 @@
         margin-right: 0;
         text-align: center;
         font-size: 115%;
+        border: none;
         &:focus {
           outline: none;
         }
@@ -733,20 +734,7 @@ p.reponse {
 
   .inner {
     margin: auto;
-    padding-bottom: 50px;
-  }
-
-  span.email, span.name {
-   position: relative;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 10px 20px;
-    /*width: 48%;*/
-    /*.wpcf7-not-valid-tip {
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-    }*/
+    padding-bottom: 20px;
   }
 
   label {
@@ -762,7 +750,7 @@ p.reponse {
     border: 1px solid $delta-color;
     border-width: 0 0 1px;
     color: $delta-color;
-    margin: 0 10px;
+    margin: 0 10px 30px;
     padding: 0 5px 5px;
     width: 200px;
 
@@ -861,7 +849,7 @@ p.reponse {
           margin-bottom: 25px;
         }
 
-        .btn_chat a, .submit a {
+        .btn_chat a:not(.ui-button), .submit a {
             cursor: pointer;
             display: inline-block;
             background: transparent;
@@ -954,6 +942,49 @@ p.reponse {
 
           }
 
+
+          .input_textarea {
+            max-width: 800px;
+            width: 100%;
+            height: 150px;
+            line-height: 150px;
+            position: relative;
+
+            .submit_input {
+              background: none;
+              color: $delta-color;
+              border: none;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              transition: all 0.3s ease-in-out;
+
+
+              &:hover, &:focus {
+                background: none !important;
+                color: $base-color;
+              }
+            }
+
+            &.error_form {
+
+              .submit_input, input.input_text_text {
+                color: $error-color !important;
+              }
+              textarea.input_text_textarea { 
+                border-color: $error-color !important;
+                &::-input-placeholder {
+                  color: $error-color !important;
+                }
+                &::-webkit-input-placeholder { color: $error-color !important; }
+                &::-moz-input-placeholder { color: $error-color !important; }
+                &::-moz-placeholder { color: $error-color !important; }
+                &::-ms-input-placeholder { color: $error-color !important; }
+              }
+            }
+
+          }
+
           @media only screen
           and ( max-width: 640px ) {
             .input_text {
@@ -961,17 +992,13 @@ p.reponse {
             }
           }
 
-          input.input_text_text {
+          input.input_text_text, textarea.input_text_textarea {
             background: none !important;
-            border: 1px solid $delta-color;
-            height: 40px;
-            line-height: 40px;
-            color: $delta-color;
-            @include border-radius(100px);
+            border: 1px solid $delta-color;            
+            color: $delta-color;            
             width: 100%;
             padding: 0 20px;
             transition: border-color 0.3s ease-in-out;
-
             &::-webkit-input-placeholder { color: $color-sec !important; }
             &::-moz-input-placeholder { color: $color-sec !important; }
             &::-moz-placeholder { color: $color-sec !important; }
@@ -983,76 +1010,18 @@ p.reponse {
             }
           }
 
-          .ui-selectmenu-button, select {    
-            background: $color-sec url(../images/chevron-select.png) no-repeat 90% 50% / 16px 9px;
-            color: $alpha-color;
+          input.input_text_text {
+            height: 40px;
+            line-height: 40px;
             @include border-radius(100px);
-            display: block;
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 40px;
-            appearance: none;
-            padding: 0 50px 0 20px;
-            width: 255px;
-
-            &:focus {
-              outline: none;
-            }
           }
 
-          select option {
-            display: block;
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 40px;
+          textarea.input_text_textarea {
+            height: 150px;
+            line-height: 25px;
+            @include border-radius(10px);
+            padding-right: 90px;
           }
-
-          .ui-selectmenu-icon {
-            background-image: none !important;
-            &:hover, &:focus {
-              background-image: none !important;
-            }
-          }
-
-        }
-
-        .ui-selectmenu-menu {
-
-          ul {
-            border: none !important;
-            @include border-radius(19px);
-            @include box-shadow(-1px -1px 2px $gray-light);
-            max-height: 200px;
-            height: auto;
-
-            li {
-
-              text-align: center;
-              color: $color-sec !important;
-              font-size: $size-default;
-              font-weight: 300;
-              line-height: 36px;
-
-              div {
-                font-size: $size-default;
-                font-weight: 300;
-                line-height: 36px;
-              }
-
-              .ui-state-active {
-                line-height: 36px;
-                background: $color-sec-light;
-                border: none;
-                color: $delta-color;
-              }
-
-            }
-
-          }
-
-        }
-
-        .ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { display: none; }
 
       }
 
@@ -1061,6 +1030,77 @@ p.reponse {
   }
 
 }
+
+.ui-selectmenu-button, select {    
+  background: $color-sec url(../images/chevron-select.png) no-repeat 90% 50% / 16px 9px;
+  color: $alpha-color;
+  @include border-radius(100px);
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 40px;
+  appearance: none;
+  padding: 0 50px 0 20px;
+  width: 255px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+select option {
+  display: block;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 40px;
+}
+
+.ui-selectmenu-icon {
+  background-image: none !important;
+  &:hover, &:focus {
+    background-image: none !important;
+  }
+}
+
+}
+
+.ui-selectmenu-menu {
+
+ul {
+  border: none !important;
+  @include border-radius(19px);
+  @include box-shadow(-1px -1px 2px $gray-light);
+  max-height: 200px;
+  height: auto;
+
+  li {
+
+    text-align: center;
+    color: $color-sec !important;
+    font-size: $size-default;
+    font-weight: 300;
+    line-height: 36px;
+
+    div {
+      font-size: $size-default;
+      font-weight: 300;
+      line-height: 36px;
+    }
+
+    .ui-state-active {
+      line-height: 36px;
+      background: $color-sec-light;
+      border: none;
+      color: $delta-color;
+    }
+
+  }
+
+}
+
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { display: none; }
 
 
 /* ==========================================================================

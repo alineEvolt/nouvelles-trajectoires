@@ -3,10 +3,17 @@ jQuery(function($) {
 
   $(document).ready(function() {
 
+
   	//Gestion du header fixed
-  	var windowHeight = $(window).height(),
-  			logo1 = $('#masthead h1 a').attr('data-logo-1'),
-  			logo2 = $('#masthead h1 a').attr('data-logo-2');
+    if (matchMedia('only screen and (max-width: 767px)').matches) {
+    	var windowHeight = $(window).height(),
+    			logo1 = $('#masthead h1 a').attr('data-logo-small'),
+    			logo2 = $('#masthead h1 a').attr('data-logo-small-2');
+    } else {
+      var windowHeight = $(window).height(),
+          logo1 = $('#masthead h1 a').attr('data-logo-1'),
+          logo2 = $('#masthead h1 a').attr('data-logo-2');
+    }
 
   	$(window).scroll( function() { 
 
@@ -54,6 +61,15 @@ jQuery(function($) {
 
     });
     $(document).on("scroll", onScroll);
+
+    //Gestion du slide [Homepage]
+    if (matchMedia('only screen and (max-width: 767px)').matches) {
+        var swiper = new Swiper('#slideHome', {
+          spaceBetween: 10,
+          slidesPerView: 'auto',
+          centeredSlides: true
+      });
+    }
 
 
   }); /* End document ready */
