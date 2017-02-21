@@ -17,5 +17,10 @@
   "devDependencies": {
     "matchMedia": "^0.3.0",
     "swiper": "^3.4.1"
+  },
+  "dependencies": {
+    "matchMedia": "^0.3.0",
+    "swiper": "^3.4.1",
+    "KNACSS": "knacss#^6.0.5"
   }
 }

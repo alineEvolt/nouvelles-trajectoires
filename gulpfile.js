@@ -22,7 +22,7 @@ var rename = require('gulp-rename');
 gulp.task('browserSync', function() {
   browserSync({    
     proxy: {
-      target: 'http://localhost:8888/NOUVELLE-TRAJECTOIRE/wordpress/'
+      target: 'http://localhost:8888/nouvelles-trajectoires/wordpress/'
     }
   })
 })

@@ -71,6 +71,10 @@ jQuery(function($) {
       });
     }
 
+    //var windowHeight = $(window).height();
+   
+    //$('.error404 #main, .error404 #page, .error404 #main .wrapper').height(windowHeight);
+
 
   }); /* End document ready */
 

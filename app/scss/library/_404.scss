@@ -1,0 +1,64 @@
+/* ----------------------------- */
+/* ==404                  */
+/* ----------------------------- */
+
+.error404 {
+	background: #EFF1F6;
+	height: 100vh;
+	height:100%;
+
+  	#main{
+		padding-top:200px;
+		@media (min-width: $tiny ) and (max-width: ( $small - 1 )){
+			padding-top: 150px;
+		}
+
+		@media (min-width: $small ) and (max-width: ( $medium - 1 )){
+			padding-top: 100px;
+		}
+		@media (max-width: $large){
+			#picture404 img {max-width:100%;}
+		}
+
+	}
+
+	#masthead {
+		position: fixed;
+		background: $alpha-color;
+		box-shadow: 0 3px 6px rgba(113,132,166,0.1);
+		#mainnav {
+			ul {
+				li {
+					a {
+						color: rgba(16,99,255,0.6);
+						&:after {
+							background: $delta-color;
+						}
+						&:hover, &:focus, &.current {
+							color: $delta-color;
+						}
+					}
+					&.contact-btn {
+						a {
+							color: $delta-color;
+							border: 1px solid $delta-color;
+							&:hover, &:focus {
+								background: $delta-color;
+								color: $alpha-color;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+}

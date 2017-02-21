@@ -3713,6 +3713,41 @@ ul.unstyled {
           font-weight: 700; }
 
 /* ----------------------------- */
+/* ==404                  */
+/* ----------------------------- */
+.error404 {
+  background: #EFF1F6;
+  height: 100vh;
+  height: 100%; }
+  .error404 #main {
+    padding-top: 200px; }
+    @media (min-width: 544px) and (max-width: 767px) {
+      .error404 #main {
+        padding-top: 150px; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .error404 #main {
+        padding-top: 100px; } }
+    @media (max-width: 1200px) {
+      .error404 #main #picture404 img {
+        max-width: 100%; } }
+  .error404 #masthead {
+    position: fixed;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(113, 132, 166, 0.1); }
+    .error404 #masthead #mainnav ul li a {
+      color: rgba(16, 99, 255, 0.6); }
+      .error404 #masthead #mainnav ul li a:after {
+        background: #1063FF; }
+      .error404 #masthead #mainnav ul li a:hover, .error404 #masthead #mainnav ul li a:focus, .error404 #masthead #mainnav ul li a.current {
+        color: #1063FF; }
+    .error404 #masthead #mainnav ul li.contact-btn a {
+      color: #1063FF;
+      border: 1px solid #1063FF; }
+      .error404 #masthead #mainnav ul li.contact-btn a:hover, .error404 #masthead #mainnav ul li.contact-btn a:focus {
+        background: #1063FF;
+        color: #fff; }
+
+/* ----------------------------- */
 /* ==Own stylesheet              */
 /* ----------------------------- */
 /* Here should go your own CSS styles */

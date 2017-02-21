@@ -11,6 +11,7 @@
 
 ?>	
 		</main><!-- END MAIN -->
+		<?php if (!is_404()) { ?>
 		<footer id="footer">		
 			<div class="grid contentinfo">
 				<div class="full txtcenter">
@@ -43,7 +44,10 @@
 			</div>
 			<?php } ?>
 		</footer>
-	</div><!-- END PAGE -->
+
+		<?php } ?>
+
+			</div><!-- END PAGE -->
 <div id="overlay"></div>
 <?php wp_footer(); ?>
 
