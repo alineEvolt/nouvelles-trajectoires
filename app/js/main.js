@@ -5,7 +5,7 @@ jQuery(function($) {
 
 
   	//Gestion du header fixed
-    if (matchMedia('only screen and (max-width: 767px)').matches) {
+    if (matchMedia('only screen and (max-width: 1023px)').matches) {
     	var windowHeight = $(window).height(),
     			logo1 = $('#masthead h1 a').attr('data-logo-small'),
     			logo2 = $('#masthead h1 a').attr('data-logo-small-2');
@@ -70,6 +70,14 @@ jQuery(function($) {
           centeredSlides: true
       });
     }
+
+    //Gestion du scroll au click sur bouton (small devices)
+    windowHeight = $(window).height();
+    $('.scroll-btn').on('click', 'a', function(e) {
+      $('html, body').animate({
+        scrollTop: windowHeight
+      }, 500);
+    });
 
 
   }); /* End document ready */

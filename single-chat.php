@@ -361,7 +361,7 @@
 
 									    	if(get_sub_field('btn_input_textarea') ) {
 
-							        		echo '<div class="chat_responses seqItem writeZrep" id="launch_rep_chat_sequence_' . $a . '_' . $i . '">';
+							        		echo '<div class="chat_responses seqItem writerep" id="launch_rep_chat_sequence_' . $a . '_' . $i . '">';
 												  echo '<div class="chat_response">';
 							        		echo '<div class="input_textarea btn_chat">';
 
@@ -550,7 +550,7 @@
 
 		    	if(get_sub_field('btn_input_textarea') ) {
 
-        		echo '<div class="chat_responses writeZrep" id="launch_rep_chat_sequence_' . $a . '">';
+        		echo '<div class="chat_responses writerep" id="launch_rep_chat_sequence_' . $a . '">';
 					  echo '<div class="chat_response">';
         		echo '<div class="input_textarea btn_chat">';
 

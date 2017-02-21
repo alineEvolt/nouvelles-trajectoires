@@ -136,26 +136,24 @@ function recursive_array_search_notif( $needle, $haystack ) {
     return false;
 }
 
-
-add_action( 'transition_post_status', 'send_mails_on_publish', 10, 3 );
-
-function send_mails_on_publish( $new_status, $old_status, $post )
-{
-  if ( 'pending' !== $new_status or 'pending' === $old_status
-        or 'synthese' !== get_post_type( $post ) )
-        return;
-
-    $subscribers = get_users( array ( 'role' => 'administrator' ) );
-    $emails      = array ();
-
-    foreach ( $subscribers as $subscriber )
-        $emails[] = $subscriber->user_email;
-
-    $body = sprintf( 'Hey there is a new entry!
-        See <%s>',
-        get_permalink( $post )
-    );
-
-
-    wp_mail( $emails, 'New entry!', $body );
+/**
+ * Adds styles from customizer to head of TinyMCE iframe.
+ * These styles are added before all other TinyMCE stylesheets.
+ * h/t Otto.
+ */
+function kwh_add_editor_style( $mceInit ) {
+  // This example works with Twenty Sixteen.
+  $backgroundBody = get_field('bkg_general_chat', 'option');
+  $colorQuest = get_field('text_color_quest', 'option');
+  $bkgQuest = get_field('bkg_bulles_quest', 'option');
+  $colorResp = get_field('text_color_reponse', 'option');
+  $bkgResp = get_field('bkg_bulles_reponse', 'option');
+   $styles = 'body#tinymce.wp-editor { font-family: arial, helvetica, sans-serif; background: #EFF1F6 !important; color: #7184A6 !important; padding: 40px; max-width: 600px; margin: 0 auto; } p, h1, h2, h3, ul, li { color: #7184A6 !important; } p.question { clear: both; display: inline-block; float: left; padding: 10px; border-radius: 100px; background: #fff !important; color: #7184A6 !important; margin: 5px 0; } p.reponse { clear: both; display: inline-block; float: right; padding: 10px; border-radius: 100px; background: #1063FF !important; color: #fff !important; margin: 0; }';
+  if ( !isset( $mceInit['content_style'] ) ) {
+    $mceInit['content_style'] = $styles . ' ';
+  } else {
+    $mceInit['content_style'] .= ' ' . $styles . ' ';
+  }
+  return $mceInit;
 }
+add_filter( 'tiny_mce_before_init', 'kwh_add_editor_style' );

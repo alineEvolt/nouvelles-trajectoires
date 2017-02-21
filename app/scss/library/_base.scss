@@ -30,9 +30,11 @@ body {
 }
 
 a {
-  color: $zeta-color;
+  color: $theta-color;
+  text-decoration: none;
   &:hover, &:focus, &:active {
-    color: $beta-color;
+    text-decoration: underline;
+
   }
 }
 

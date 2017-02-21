@@ -66,7 +66,7 @@
       margin-top: 0;
       @media (max-width: ($small - 1)) {
         font-size: 2rem;
-        font-weight: 100;
+        font-weight: 300;
       }
     }
   }
@@ -77,10 +77,18 @@
   font-size: $h1-size;
   font-weight: 100;
   line-height: 1.3;
+  a {
+    color: $base-color;
+    text-decoration: none;
+  }
   @media (max-width: ($small - 1)) {
     font-size: $h2-size !important;
     padding-top: 30%;
   }
+  @media (max-width: ($small - 1) ) and (orientation: landscape) {
+    padding-top: 6%;
+  }
+
 }
 
 .content_row {
@@ -97,6 +105,7 @@
     &:nth-last-child(1) {
       padding-bottom: 0;
     }
+    
   }
 
   &.nopad_content {
@@ -107,6 +116,10 @@
   }
 
   .column {  
+
+    @media ( min-width: ($tiny + 1) ) and (max-width: ($small - 1) ) and (orientation: landscape) {
+      width: 50%;
+    }
     
     .text {      
       
@@ -135,6 +148,17 @@
         max-width: 140px;
         width: auto;
       }
+      @media ( min-width: ($tiny + 1) ) and (max-width: ($small - 1) ) and (orientation: landscape) {
+        text-align: center;
+        max-width: 30%;
+      }
+      @media (min-width: $small) and (max-width: ($medium - 1) ) {
+        max-width: 100px;
+        img {
+          max-width: 100%;
+        }
+      }
+
     }
     .pos-left, .pos-left + .text {
       display: inline-block;
@@ -163,10 +187,17 @@
           font-size: 2rem;
         }
         p {
-          font-weight: 100;
+          font-weight: 300;
           line-height: 1.2;
         }
       }
+
+    }
+    @media (min-width: $small) and (max-width: ($medium - 1) ) {
+
+        .pos-left {
+          margin-right: $medium-value;
+        }
 
     }
 
@@ -198,6 +229,10 @@
         padding-bottom: $large-plus-value;
         .text {
           width: 100%;
+        }
+        @media ( min-width: ($tiny + 1) ) and (max-width: ($small - 1) ) and (orientation: landscape) {
+          width: 100%;
+          text-align: center;
         }
       }
     }
@@ -263,7 +298,7 @@
       width: auto;
       height: auto;
     }
-    @media (max-width: ($small - 1)) {
+    @media (max-width: ($medium - 1)) {
       display: none;
     }
   }
@@ -293,7 +328,7 @@
         width: 25px;
       }
       p {
-        font-weight: 100;
+        font-weight: 300;
         width: 85%;
         marign-top: 0;
       }

@@ -53,17 +53,18 @@
 
 	h1 {
 		margin-bottom: 0;
-		@media (max-width: ($small - 1)) {
+		@media (max-width: ($medium - 1)) {
 			display: inline-block;
 			vertical-align: middle;
+			width: 50px !important;
 		}
 		a {
 			display: block;
 			img {
-				@media (min-width: $small) {
+				@media (min-width: $medium) {
 					width: 300px;					
 				}
-				@media (max-width: ($small - 1)) {
+				@media (max-width: ($medium - 1)) {
 					width: 40px;
 					position: relative;
 					top: -5px;
@@ -82,6 +83,15 @@
 			float: right;
 			line-height:65px;
 		}
+		@media (min-width: $small) and (max-width: ( $medium - 1 )) {
+			width: calc(100% - 80px) !important;
+			display: inline-block;
+			float: right;
+			line-height:65px;
+		}
+		@media (max-width: ($small - 1) ) and (orientation: landscape) {
+			width: calc(100% - 80px) !important;
+		}
 		ul {
 			list-style-type: none;
 			list-style-position: outside;
@@ -95,6 +105,9 @@
 				text-transform: uppercase;
 				line-height: 33px;
 				margin: auto;
+				@media (max-width: ($small - 1) ) and (orientation: landscape) {
+					margin: 0 0 0 auto;
+				}
 				a {
 					color: rgba(255,255,255,0.6);
 					text-decoration: none;				

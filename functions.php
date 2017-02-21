@@ -106,11 +106,11 @@ function nouvelles_trajectoires_scripts() {
 	wp_enqueue_style( 'nt-style', get_stylesheet_uri() );
 
 	/* à remettre pour le build (prod)*/
-	//wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/dist/css/styles.min.css' );
+	wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/dist/css/styles.min.css' );
     
     //A virer pour le build
-    wp_enqueue_style( 'ntui-styles', get_template_directory_uri() . '/app/css/jquery-ui.css' );
-    wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/app/css/knacss.css' );
+    //wp_enqueue_style( 'ntui-styles', get_template_directory_uri() . '/app/css/jquery-ui.css' );
+    //wp_enqueue_style( 'nt-styles', get_template_directory_uri() . '/app/css/knacss.css' );
     // end a virer pour le build
 
     wp_enqueue_script( 'nt-modernirz', get_template_directory_uri() . '/dist/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js', array("jquery"), '20170214', false );
@@ -118,6 +118,7 @@ function nouvelles_trajectoires_scripts() {
 		wp_register_script( 'nt-functions', get_template_directory_uri() . '/dist/js/main.min.js', array("jquery"), '20170214', true );
 
 		wp_register_script( 'nt-chatjs', get_template_directory_uri() . '/dist/chat/chat.min.js', array("jquery"), '20170214', true );
+		//wp_register_script( 'nt-chatjs', get_template_directory_uri() . '/app/chat/chat.js', array("jquery"), '20170214', true );
 		wp_localize_script( 'nt-chatjs', 'chatux_params', array( 'chat_ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 
 		if( is_front_page() ){

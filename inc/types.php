@@ -160,6 +160,30 @@ function chatux_create() {
     __update_post_meta( $the_post_id, 'nom_synthese', $name );
     __update_post_meta( $the_post_id, 'email_synthese', $email );
 
-    die($results);
+    $imgUrl = get_field('logo_2', 'option');
+    $email = get_field('email_contact', 'option');
+    $headers = 'From: Nouvelles trajectoires <noreply@nouvelles-trajectoires.evolt.fr>';
+       
+
+    $body = sprintf( '<h1>Bonjour Jean-Marc</h1>
+      <p>Une nouvelle personne vient de prendre contact sur votre site Internet : </p>
+      <p>Nom : <strong>'. $name . '</strong> <br />
+      email : <strong>'. $email . '</strong> <br />
+      Voir de détail : <br />
+       ' . $questions .'</p>
+       <p><strong>permalien :</strong> ' . get_permalink($the_post_id) . '</p>'
+    );
+
+    function wpdocs_set_html_mail_content_type() {
+      return 'text/html';
+    }
+    add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+
+    wp_mail( $email, 'Une personne a laissé un message', $body, $headers );
+
+   remove_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+
+   die($results);
   }
+
 };

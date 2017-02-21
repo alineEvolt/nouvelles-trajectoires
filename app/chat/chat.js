@@ -23938,15 +23938,15 @@ jQuery(function($) {
 
           if ( $(sequence_name).hasClass('seqItem') === false ) {
 
-
-
             if( $(this).hasClass('chat_responses') ) {
               $nextSeq = '';           
               $nextSubSeq = $(this).attr('id');
               return false;
             } else if( $(this).next().attr('id') === 'submit_mary' || $(this).closest('.sequence').next().attr('id') === 'submit_mary' ) {
-              
-              setTimeout(launchMary, 1000);
+              setTimeout(launchMary, 500);
+
+            } else if( $(this).attr('id') === 'end-chat' ) {
+            	post_via_ajax();
             }
 
           } else {            
@@ -23988,7 +23988,6 @@ jQuery(function($) {
               easing: 'swing',
               speed: 500
             });
-
             launchQuest($nextSubSeq);
           } else {
       
@@ -23999,8 +23998,8 @@ jQuery(function($) {
               speed: 500
             });
 
-            launchSeq($nextSeq);
 
+            launchSeq('seq : ' + $nextSeq);
           }
 
         });
@@ -24036,7 +24035,7 @@ jQuery(function($) {
 
           function clickresponses() {
 
-            btns.find('input[type=radio], a.submit_input, a.increment').one('click', function(e) {
+            btns.find('input[type=radio], a.submit_input:not(.submit_chat), a.increment').one('click', function(e) {
 
               e.preventDefault();
 
@@ -24214,12 +24213,11 @@ jQuery(function($) {
 
               if( $(next_sequence).attr('id') === 'submit_mary' ) {
 
-                setTimeout(launchMary, 1000);
+                setTimeout(launchMary, 500);
 
               } else {
 
                 launchSeq(next_sequence);
-
               }
 
             }
@@ -24233,8 +24231,7 @@ jQuery(function($) {
 
           $('#form_chat div:not(.itemDone)').remove();
           $('#submit_mary').delay(1500).queue( function() {
-              $('#submit_mary').addClass('show');
-              $('#overlay').fadeIn();
+              launchSeq('#mail_form > div');
           });
 
         }
@@ -24250,40 +24247,37 @@ jQuery(function($) {
       $('a.submit_chat').on('click', function(e) {          
 
           var eMail = $(this).closest('.chat_submit').find('input[type="email"]').attr('value'),
-              nameP = $(this).closest('.chat_submit').find('input[type="text"]').attr('value'),
               mary = $(this).closest('.chat_submit').find('input#marypopins').attr('value');
 
 
 
           function validateEmail($email) {
-            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;            
             return emailReg.test( $email );
           }
 
-          if( nameP && eMail && validateEmail(eMail) && mary === 'maryP' ) {              
-            $('input#email, input#name').removeClass('error');
-              $('.error_form').remove();
-              post_via_ajax();              
+          if( eMail && validateEmail(eMail) && mary === 'maryP' ) {          	
+            $('input#email').closest('.input_text').removeClass('error_form');          
+            $('input#email').closest('.input_text').addClass('hideButton').removeClass('showButton');
+
+            $('<div class="chat_list_item chat_list_item_reponse itemDone" id="show_last" data-update="reponse"><div class="chat_bubble chat_bubble_reponse"><span contenteditable="true">' + eMail + '</span></div></li>').insertBefore('#mail_thx');
+
+            $('.error_text').remove();
+
+            $(this).delay(500).queue( function() {
+                
+                $('#show_last').addClass('showButton');
+                launchSeq('#mail_thx > div');
+             });
 
           } else if( !(validateEmail(eMail)) ) {
-            $('input#email').addClass('error');            
-            $('input#name').removeClass('error');
-            $('.error_form').remove();
-            $('<span class="error_form">Merci de saisir un email valide</span>').insertAfter('.submit_chat');
-          } else if ( !(nameP) && eMail ) {
-            $('input#name').addClass('error');
-            $('input#email').removeClass('error');
-            $('.error_form').remove();
-            $('<span class="error_form">Merci de renseigner le champ obligatoire</span>').insertAfter('.submit_chat');
-          } else if ( !(eMail) && nameP ) {
-            $('input#email').addClass('error');
-            $('input#name').removeClass('error');
-            $('.error_form').remove();
-            $('<span class="error_form">Merci de renseigner les champs</span>').insertAfter('.submit_chat');
-          } else if ( !(nameP) && !(eMail) ) {
-            $('input#email, input#name').addClass('error');
-            $('.error_form').remove();
-            $('<span class="error_form">Merci de renseigner les champs obligatoires</span>').insertAfter('.submit_chat');
+            $('input#email').closest('.input_text').addClass('error_form');
+            $('.error_text').remove();
+            $('<span class="error_text">Merci de saisir un email valide</span>').insertAfter('.submit_chat');
+          } else if ( !(eMail) ) {
+            $('input#email').closest('.input_text').addClass('error_form');
+            $('.error_text').remove();
+            $('<span class="error_text">Merci de saisir votre email</span>').insertAfter('.submit_chat');
           }
 
           e.preventDefault();
@@ -24321,20 +24315,9 @@ jQuery(function($) {
             email: $post_mail
           },
           success: function(data) {
-
-            function redirect_mary() {
-               
-              $('#mail_form').fadeOut('', function() {
-                $('#mail_thx').addClass('botLoading').fadeIn();
-                
-
-              });
-
-            }
-
-            
-            setTimeout(redirect_mary, 200);
-            
+          	setTimeout( function() {
+          		location.href = "/";
+          	}, 3000);          
           },
           error: function() {
             

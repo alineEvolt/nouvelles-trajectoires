@@ -692,129 +692,9 @@ p.reponse {
     display: none;
 }
 
-#submit_mary {
-  background: $alpha-color;
-  @include box-shadow(0px 1px 2px $gray-light);
-  width: 800px;
-  height: auto;
-  @include border-radius(20px);
-  padding: 30px;
-  text-align: center;
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  margin-left: -400px;
-  opacity: 0;
-  @include transform(translate3d(0, 250px, 0));
-  transition: transform 0.8s cubic-bezier(0,.82,0,1.27), opacity 0.8s ease-in-out;
+input#marypopins { display: none; }
 
-  @media only screen
-  and (max-width: 800px) {
-    width: 90%;
-  }
-
-  @media only screen
-  and (max-width: 640px) {
-    top: 0;
-    left: 0;
-    height: 100%;
-    display: flex;
-    margin-left: 0;
-    width: 100%;
-  }
-
-  &.show {
-    opacity: 1;
-    @include transform(translate3d(0, 0, 0));
-    z-index: 200;
-    &.hide {
-      opacity: 0;
-    }
-  }
-
-  .inner {
-    margin: auto;
-    padding-bottom: 20px;
-  }
-
-  label {
-    font-size: 100%;
-    padding-bottom: 30px;
-    display: block;
-    p {
-      margin: 0 0 15px;
-    }
-  }
-
-  input {
-    border: 1px solid $delta-color;
-    border-width: 0 0 1px;
-    color: $delta-color;
-    margin: 0 10px 30px;
-    padding: 0 5px 5px;
-    width: 200px;
-
-    &.error {
-      border-color: $error-color;    
-    }
-    &:focus {
-      outline: none;
-      border-color: $ok-color;
-    }
-  }
-
-  .submit { 
-    display: block;
-    .submit_chat {
-      background: none;
-      border: 1px solid $delta-color;
-      border-radius: 100px;
-      color: $delta-color;
-      cursor: pointer;
-      font-size: 16px;
-      text-align: center;
-      line-height: 35px;
-      text-transform: uppercase;
-      padding: 0 $medium-value;
-      transition: all 0.3s ease;
-
-      &:hover, &:focus {
-        background: $delta-color;
-        color: $alpha-color;
-      }
-    }
-  }
-
-  #mail_thx { 
-    display: none;
-    .avatar_bot {
-      img {
-        height: auto;
-        max-width: 100%;
-        width: 100%;
-      }
-    }
-  }
-
-  .error_form, .wpcf7-not-valid-tip {
-    color: $error-color;
-    display: block;
-    clear: both;
-    text-align: center;
-    font-size: 12px;
-  }
-
-  .wpcf7-response-output {
-    position: absolute;
-    bottom: 20px;
-    max-width: 740px;
-    width: 100%;
-    margin: 0;
-
-  }
-
-
-}
+span.error_text { color: $error-color;}
 
 .single-chat {
   background: $zeta-color;
@@ -923,7 +803,7 @@ p.reponse {
               }
             }
 
-            &.error_form {
+            &.error_form, &.error_text {
 
               .submit_input, input.input_text_text {
                 color: $error-color !important;
@@ -966,7 +846,7 @@ p.reponse {
               }
             }
 
-            &.error_form {
+            &.error_form, &.error_text {
 
               .submit_input, input.input_text_text {
                 color: $error-color !important;

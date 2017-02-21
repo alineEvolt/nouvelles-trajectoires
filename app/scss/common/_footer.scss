@@ -30,6 +30,9 @@
 		.flex-item-fluid{
 			margin: 0 auto;
 			padding-left: $extra-large-value;
+			@media (max-width: ($small - 1)) and( orientation: landscape ) {
+				padding-left: $medium-plus-value;
+			}
 		}
 
 		.social {
@@ -49,7 +52,7 @@
 					}
 				}
 			}
-			@media (max-width: ($small - 1)) {
+			@media (max-width: ($small - 1)) and( orientation: portrait ) {
 				position: absolute;
 				top: 20px;
 				left: 0;
@@ -57,7 +60,7 @@
 				text-align: center;
 			}
 		}
-		@media (max-width: ($small - 1)) {
+		@media (max-width: ($small - 1)) and( orientation: portrait ) {
 			display: block;
 			padding: 12rem 12px $large-value;
 			position: relative;
